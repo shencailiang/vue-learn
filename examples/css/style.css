@@ -1,0 +1,124 @@
+  .luckdraw-content {
+    margin-top: 0.4rem;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+  .luckdraw-content .luckdraw-scroll .bg-scroll {
+    position: relative;
+    width: 90%;
+    height: 0.74rem;
+    line-height: 0.74rem;
+    font-size: 0.35rem;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 0.03rem;
+    background: linear-gradient(to right, #bcbcc1, #cdcdcd, #bcbcc1);
+  }
+  .luckdraw-content .luckdraw-scroll .lkq-name {
+    margin: 0 auto;
+    color: #fff;
+    font-size: 0.28rem;
+  }
+  .luckdraw-content .luckdraw-scroll .anim {
+    transition: all 0.5s linear;
+    margin-top: -0.74rem;
+  }
+  .luckdraw-content .turntable {
+    position: relative;
+    margin: 0.4rem auto;
+    width: 6rem;
+    height: 6rem;
+    background: #fed479;
+    border-radius: 0.4rem;
+    box-sizing: border-box;
+    padding: 5%;
+  }
+  .luckdraw-content .turntable .bulb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .luckdraw-content .turntable .bulb .bulb-1 {
+    animation: bulb-animation 0.5s -0.25s infinite;
+  }
+  .luckdraw-content .turntable .bulb .bulb-2 {
+    animation: bulb-animation 0.5s infinite;
+  }
+  .luckdraw-content .turntable .awards-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+  }
+  .luckdraw-content .turntable .awards-item {
+    width: 32%;
+    height: 32%;
+    margin: 0.66%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 3px solid #fff;
+    border-radius: 25%;
+    font-size: 0.24rem;
+    background: #fff;
+    color: #d65c23;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    transition: border-color 0.1s;
+  }
+  .luckdraw-content .turntable .awards-item-draw {
+    background: #963434;
+    border: none;
+    overflow: hidden;
+  }
+  .luckdraw-content .turntable .draw-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 0.28rem;
+    border: 3px solid #ff7051;
+    background: #ff7051;
+    animation: draw-btn-jump 0.5s infinite;
+  }
+  .luckdraw-content .turntable .run-item {
+    position: relative;
+    border-color: #ff7051;
+  }
+  @keyframes bulb-animation {
+    0% {
+      color: #FFFFFF;
+    }
+    50% {
+      color: #FFE37F;
+    }
+    100% {
+      color: #FFFFFF;
+    }
+  }
+  @keyframes draw-btn-jump {
+    0% {
+      top: -6px;
+    }
+    50% {
+      top: 0;
+    }
+    100% {
+      top: -6px;
+    }
+  }
+  

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>样式</title>
+  <script src="../../js/vue2.js"></script>
+  <style>
+    #app {
+      position: fixed;
+      top: 100px;
+      left: 200px;
+      right: 100px;
+      bottom: 100px;
+    }
+    .active {
+      font-size: 30px;
+      color: #000;
+    }
+    .text-danger {
+      color: red;
+    }
+    .my-name {
+      font-size: 34px;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- class用法 -->
+    <div
+      :class="{ active: isActive, 'text-danger': hasError }"
+    >
+    我们是启明星辰泰合产品二部
+    </div>
+
+    <!-- class用法 -->
+    <div
+      :class="getClass()"
+    >
+    我们是启明星辰泰合产品二部-长沙分部
+    </div>
+
+    <!-- class用法 -->
+    <div
+      :class="getClassArr()"
+    >
+    我们是启明星辰泰合产品二部-长沙分部
+    </div>
+    
+    <!-- style用法 -->
+    <div
+      :style="{background: 'rgba(4, 4, 4, 0.3)', margin: '20px 30px', 'font-size': '30px'}"
+    >
+    我们是启明星辰泰合产品二部-长沙分部-前端小组
+    </div>
+
+    <div
+      :style="{background: background, margin: '20px 30px', 'font-size': '30px'}"
+    >
+    我们是启明星辰泰合产品二部-长沙分部-前端小组
+    </div>
+
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isActive: true,
+        hasError: true,
+        background: 'rgba(100, 10, 100, 0.3)'
+      },
+      methods: {
+        getClass() {
+          return 'my-name'
+        },
+        getClassArr() {
+          return ['active', 'text-danger'];
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

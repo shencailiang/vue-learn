@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>事件处理</title>
+  <script src="../../js/vue2.js"></script>
+  <style>
+    #app {
+      position: fixed;
+      top: 200px;
+      left: 400px;
+      right: 100px;
+      bottom: 100px;
+    }
+    .counter {
+      font-size: 30px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="counter += 1">增加 1</button>
+    <button @click="counter -= 1">减少 1</button>
+    <p>点击按钮增加 <span class="counter">{{ counter }}</span> 次数.</p>
+
+    <button @click="greet">Greet</button>
+
+        <!-- 阻止单击事件继续传播 -->
+    <p><button v-on:click.stop="doThis">点击跳转</button></p>
+
+    <!-- 提交事件不再重载页面 -->
+    <p><form v-on:submit.prevent="submit">form表单</form></p>
+
+    <!-- 修饰符可以串联 -->
+    <p><button v-on:click.stop.prevent="doThat">点击跳转1</button></p>
+
+    <!-- 添加事件监听器时使用事件捕获模式 -->
+    <!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 -->
+    <div v-on:click.capture="doThis">
+      <a @click="doInner">11111 and </a>doThis
+    </div>
+
+    <!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+    <!-- 即事件不是从内部元素触发的 -->
+    <div v-on:click.self="doThat">
+      <a>跳转doThat</a>
+    </div>
+    <!-- 事件只生效一次 -->
+    <p><button v-on:click.once="doThis">事件只生效一次</button></p>
+
+    <!-- 直接将 KeyboardEvent.key 暴露的任意有效按键名转换为 kebab-case 来作为修饰符 -->
+    <p>page-down: <input v-on:keyup.page-down="onPageDown"></p>
+
+    <!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+    <p>enter: <input v-on:keyup.enter="submit"></p>
+
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        counter: 0
+      },
+      methods: {
+        greet: function (event) {
+          // `this` 在方法里指向当前 Vue 实例
+          alert('当前次数为 ' + this.counter + '!')
+          // `event` 是原生 DOM 事件
+          if (event) {
+            alert(event.target.tagName)
+          }
+        },
+        doThis() {
+          alert('doThis')
+        },
+        doThat() {
+          alert('doThat')
+        },
+        onPageDown() {
+          alert('onPageDown')
+        },
+        submit() {
+          alert('submit')
+        },
+        doInner() {
+          alert('doInner')
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

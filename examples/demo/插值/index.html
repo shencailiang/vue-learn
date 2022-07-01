@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>插值</title>
+  <script src="../../js/vue2.js"></script>
+  <style>
+    #app {
+      position: fixed;
+      top: 100px;
+      left: 200px;
+      right: 100px;
+      bottom: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Message: {{ msg }}</h1>
+    <!-- 数字运算 -->
+    <h2>{{ number + 1 }}</h2>
+    <!-- 函数处理 -->
+    <h3>{{ message.split('').reverse().join('') }}</h3>   
+    <!-- 与属性绑定 -->
+    <button v-bind:disabled="enabled" @click="alert(11111)">启用</button>
+    <!-- 简写版本 <button :disabled="enabled">启用</button> -->
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: '我是中国人',
+        number: 11,
+        message: '我是  过  250  666',
+        enabled: false
+      }
+    })
+  </script>
+</body>
+
+</html>

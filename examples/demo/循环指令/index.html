@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>循环渲染</title>
+  <script src="../../js/vue2.js"></script>
+  <style>
+    #app {
+      position: fixed;
+      top: 100px;
+      left: 200px;
+      right: 100px;
+      bottom: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in items" :key="item.message">
+        <h1>{{ item.message }}</h1>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        items: [
+          { message: 'Foo' },
+          { message: 'Bar' },
+          { message: 'Bar12124' },
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

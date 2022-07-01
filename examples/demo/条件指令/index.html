@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Condition</title>
+  <style>
+    
+  </style>
+  <script src="../../js/vue2.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1  @click="showText">
+      {{ message }}
+    </h1>
+    <div v-if="show">
+      我是条件循环
+    </div>
+    <div v-else>
+      我是不是条件循环
+    </div>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: '切换信息',
+        show: false // 控制是否显示
+      },
+      methods: {
+        showText(){
+          this.show = !this.show;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
